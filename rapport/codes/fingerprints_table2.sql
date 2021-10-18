@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS FINGERPRINTS (
+  song_fk MEDIUMINT UNSIGNED NOT NULL,
+  hash BINARY(10) NOT NULL,
+  offset INT UNSIGNED NOT NULL,
+  INDEX(hash),
+  UNIQUE(song_fk, offset, hash),
+  FOREIGN KEY (song_fk) REFERENCES SONGS (song_id)
+);
